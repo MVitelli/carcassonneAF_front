@@ -3,7 +3,7 @@ import SelectableCard from './SelectableCard';
 
 const SelectableCardList = (props) => {
     const { contents } = props;
-    
+
     const [tilesSelected, setTilesSelected] = useState([])
 
     const handleClick = (event) => {
@@ -25,7 +25,7 @@ const SelectableCardList = (props) => {
                 selected={tilesSelected.includes(number.toString())}
                 onClick={handleClick}
             >
-                <img src={image}></img>
+                <img alt={`Tile_${number}`} src={image}></img>
             </SelectableCard>
         );
     });

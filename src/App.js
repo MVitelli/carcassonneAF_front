@@ -1,7 +1,6 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import RemainingTiles from "./Components/RemainingTiles";
 
-
 function App() {
   return (
     <Router>
