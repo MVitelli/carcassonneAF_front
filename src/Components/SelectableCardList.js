@@ -1,20 +1,35 @@
 import React, { useState } from 'react'
-import SelectableTitleCard from './SelectableTitleCard';
+import SelectableCard from './SelectableCard';
 
 const SelectableCardList = (props) => {
     const { contents } = props;
-    const [selected, setSelected] = useState(false)
+    
+    const [tilesSelected, setTilesSelected] = useState([])
 
-    const content = contents.map((cardContent, i) => {
-        let { title, description } = cardContent;
+    const handleClick = (event) => {
+        let tileId = event.currentTarget.id;
+        if (tilesSelected.includes(tileId)) {
+            setTilesSelected(tilesSelected.filter(id => id !== tileId))
+        }
+        else {
+            setTilesSelected([...tilesSelected, tileId])
+        }
+    }
+
+    const content = contents && contents.map((cardContent, i) => {
+        let { number, image } = cardContent;
         return (
-            <SelectableTitleCard key={i}
-                title={title} description={description}
-                selected={selected}
-                onClick={() => { setSelected(!selected) }} />
+            <SelectableCard
+                key={i}
+                id={number}
+                selected={tilesSelected.includes(number.toString())}
+                onClick={handleClick}
+            >
+                <img src={image}></img>
+            </SelectableCard>
         );
     });
-    return (<div className="cardlist">{content}</div>);
+    return (<div>{content}</div>);
 
 }
 

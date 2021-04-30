@@ -1,6 +1,5 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import RemainingTiles from "./Components/RemainingTiles";
-import TestCards from "./Components/TestCards";
 
 
 function App() {
@@ -9,7 +8,7 @@ function App() {
       <div>
         <Switch>
           <Route path="/">
-            <TestCards />
+            <RemainingTiles />
           </Route>
         </Switch>
       </div>

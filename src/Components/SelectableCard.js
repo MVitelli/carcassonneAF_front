@@ -6,10 +6,10 @@ const SelectableCard = (props) => {
     let className = "selectable " + isSelected;
     return (
         <Card>
-            <div className={className} onClick={props.onClick}>
+            <div className={className} onClick={props.onClick} {...props}>
                 {props.children}
                 <div className="check">
-                    <span className="checkmark">✔</span>
+                    <span className="checkmark"> ✔</span>
                 </div>
             </div>
         </Card>

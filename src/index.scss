@@ -19,6 +19,7 @@ $card-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 $card-shadow-hover: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 
 .card {
+  display: inline-block;
   transition: $transition;
   box-shadow: $card-shadow;
   background: #fff;
@@ -65,6 +66,7 @@ $selected-color: #44aadd;
   }
   
   &.selected {
+    filter: grayscale(100%);
     border-color: $selected-color;
     .check {
       &:before {
@@ -77,37 +79,6 @@ $selected-color: #44aadd;
   }
 }
 
-.content {
-  .title, .description { 
-    margin: 0; 
-    padding: 4px
-  }
-  padding: 24px;
-}
-
-.column {
-  & > .title {
-    text-align: center;
-  }
-  float: left;
-  width: 50%;
-}
-
-button.card {
-  display: block;
-  cursor: pointer;
-  width: 180px;
-  margin: 20px auto;
+.title{
   text-align: center;
-  padding: 16px;
-  border-color: transparent;
-  border-radius: 10px;
-  background: $selected-color !important;
-  color: #fff;
-  text-transform: uppercase;
-  font-weight: bold;
-  outline: none;
-  &:focus{
-    box-shadow: $card-shadow;
-  }
 }
