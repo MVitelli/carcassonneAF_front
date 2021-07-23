@@ -7,8 +7,11 @@ const API = process.env.REACT_APP_API_URL;
 const BASIC_TILES_NUMBER = 72;
 
 const RemainingTiles = () => {
+    const [zoom, setZoom] = useState(false)
     const [tiles, setTiles] = useState([])
     const [tilesToShow, setTilesToShow] = useState([]);
+
+    const zoomInOut = () => setZoom(!zoom)
 
     const showBasic = () => {
         setTilesToShow(tiles.slice(0, BASIC_TILES_NUMBER))
@@ -36,9 +39,13 @@ const RemainingTiles = () => {
                 <Col className="title">
                     <Button onClick={showExpansions}>With expansions</Button>
                 </Col>
+                <Col className="title">
+                    <Button onClick={zoomInOut}>{zoom ? "➖" : "➕"}</Button>
+                </Col>
             </Row>
             <SelectableCardList
                 contents={tilesToShow}
+                zoom={zoom}
             />
 
         </div>

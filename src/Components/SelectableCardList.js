@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import SelectableCard from './SelectableCard';
 
 const SelectableCardList = (props) => {
-    const { contents } = props;
+    const { contents, zoom } = props;
 
     const [tilesSelected, setTilesSelected] = useState([])
 
@@ -25,7 +25,7 @@ const SelectableCardList = (props) => {
                 selected={tilesSelected.includes(number.toString())}
                 onClick={handleClick}
             >
-                <img alt={`Tile_${number}`} src={image}></img>
+                <img width={!zoom && "100px"} height={!zoom && "100px"} alt={`Tile_${number}`} src={image}></img>
             </SelectableCard>
         );
     });
